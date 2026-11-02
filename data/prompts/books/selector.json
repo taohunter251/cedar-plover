@@ -1,0 +1,7 @@
+{
+  "prompts": {
+    "SYSTEM": "selector/system.md",
+    "SELECT": "selector/select.md",
+    "DUEL": "selector/duel.md"
+  }
+}

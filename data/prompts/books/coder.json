@@ -1,0 +1,14 @@
+{
+  "prompts": {
+    "SYSTEM": {
+      "sections": [
+        {"fragments": ["coder/system/role.md", "coder/system/pipeline.md", "coder/system/scene_tools.md",
+                       "coder/system/output_contract.md", "coder/system/modeling.md"]}
+      ]
+    },
+    "FIRST_TURN": "coder/first_turn.md",
+    "VALIDATION_REPAIR": "coder/validation_repair.md",
+    "CRITIC_REPAIR": "coder/critic_repair.md",
+    "NO_EDIT_RETRY": "coder/no_edit_retry.md"
+  }
+}

@@ -6,13 +6,13 @@ from pathlib import Path
 
 from witness_client import AsyncWitnessClient
 
-from miner import pipeline
+from miner import tutti_post
 
 __all__ = ["generate"]
 
 
 async def generate(image: bytes, seed: int, witness: AsyncWitnessClient) -> str | None:
-    return await pipeline.generate(image, seed, witness)
+    return await tutti_post.generate(image, seed, witness)
 
 
 async def main() -> None:

@@ -1,0 +1,13 @@
+{
+  "type": "function",
+  "name": "restore_scene_revision",
+  "description": "Make the scene equal to an earlier revision again. This creates a new revision with that code; every revision stays available. Returns the new revision id and the restored one.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "revisionId": {"type": "string", "description": "Id of the revision to restore, e.g. r3."}
+    },
+    "required": ["revisionId"]
+  },
+  "strict": false
+}

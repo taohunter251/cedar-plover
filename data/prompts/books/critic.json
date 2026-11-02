@@ -1,0 +1,7 @@
+{
+  "prompts": {
+    "SYSTEM": "critic/system.md",
+    "REVIEW": "critic/review.md",
+    "AROUND": "critic/around.md"
+  }
+}
