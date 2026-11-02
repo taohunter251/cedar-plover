@@ -22,7 +22,7 @@ version = "0.1.0"
 description = ""
 authors = []
 readme = "README.md"
-packages = [{ include = "miner" }, { include = "sceneforge" }]
+packages = [{ include = "miner" }]
 
 [tool.poetry.dependencies]
 python = ">=3.13,<3.14"

@@ -1,1 +1,0 @@
-Reference photo above. First list to yourself every feature of the object the photo shows: its identity, parts and their counts, proportions, pose and visible side, colors and materials, text, logos and patterns; the judge checks the same list. Then write the complete module that rebuilds this object with `write_scene`, building every feature on that list.

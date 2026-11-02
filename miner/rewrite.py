@@ -28,7 +28,7 @@ from __future__ import annotations
 from loguru import logger
 from witness_client import AsyncWitnessClient, RenderOptions
 
-from miner import images, lumen_wrap, pipeline, turns
+from miner import draft_batch, images, lumen_wrap, pipeline, turns
 from miner import rewrite_prompts as P
 
 DRAFT_EFFORT, REWRITE_EFFORT = "medium", "high"
@@ -146,6 +146,15 @@ async def first_module(
         if turns.looks_like_module(code):
             tried = code
         grid, errors = await check(code, calls.witness, views)
+        if grid is None and any(error.startswith("DRAW_CALL_LIMIT_EXCEEDED:") for error in errors):
+            batched = draft_batch.apply(code)
+            if batched != code:
+                batch_grid, batch_errors = await check(batched, calls.witness, views)
+                if batch_grid is not None:
+                    logger.info("draft batching recovered a draw-call rejection")
+                    code, grid, errors = batched, batch_grid, []
+                else:
+                    logger.info("draft batching did not recover the module ({}), using ordinary repair", batch_errors[:1])
         if grid is not None:
             logger.info("{} accepted", "draft" if not repairs else f"repair {repairs}")
             return code, grid
